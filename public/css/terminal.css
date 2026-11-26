@@ -1,0 +1,127 @@
+/* =====================================================================
+   MOTYW „TERMINAL”: czarny, pomarańczowy, biały (styl Claude Code CLI)
+   Ładowany po style.css i nadpisuje jego kolory oraz kształty.
+   ===================================================================== */
+:root{
+  --bg:#0b0b0b;--bg2:#101010;--panel:#151515;--panel2:#1e1e1e;--line:#333333;--text:#f1f1f1;--muted:#8c8c8c;
+  --accent:#e0825a;--accent2:#f4b393;--ok:#8fd19e;--bad:#f2837a;--warn:#f0b86e;
+  --crit:#f2837a;--med:#f0b86e;--minor:#e6d28a;--code:#080808;--codetext:#ececec;
+  --kw:#e0825a;--ty:#ffffff;--str:#a8c98a;--num:#f0b27a;--cm:#6c6c6c;--an:#f0b27a;--fn:#ffd5bf;
+  --shadow:none;
+  --mono:"Cascadia Mono","Cascadia Code","JetBrains Mono",Consolas,"Courier New",monospace;
+}
+:root[data-theme=light]{
+  --bg:#faf9f5;--bg2:#f1efe7;--panel:#ffffff;--panel2:#f1efe7;--line:#d8d3c4;--text:#1c1b18;--muted:#7a756a;
+  --accent:#c4552f;--accent2:#a8431f;--ok:#2f7d46;--bad:#c0392b;--warn:#a96a12;
+  --crit:#c0392b;--med:#a96a12;--minor:#8a7a10;--code:#fdfcf8;--codetext:#1c1b18;
+  --kw:#c4552f;--ty:#1c1b18;--str:#3f7a2c;--num:#a96a12;--cm:#9a9484;--an:#a96a12;--fn:#8a3d20;--shadow:none;
+}
+body,button,input,select,textarea{font-family:var(--mono)}
+body{font-size:14px;line-height:1.6}
+::selection{background:var(--accent);color:#000}
+*{border-radius:2px!important;scrollbar-width:thin;scrollbar-color:#3a3a3a transparent}
+.ring,.gs-num,.chk .mk,.mod::before,.dot.lab{border-radius:50%!important}
+a{color:var(--accent2)}
+h1,h2,h3,h4{font-family:var(--mono);font-weight:700}
+h1{font-size:1.5rem}h2{font-size:1.2rem}h3{font-size:1.02rem}
+.theory h1::before,.container h1::before{content:"> ";color:var(--accent)}
+.theory h2::before{content:"● ";color:var(--accent)}
+code,pre,kbd{font-family:var(--mono)}
+p code,li code,td code,.note code,h3 code,.q code{background:var(--panel2);color:var(--accent2);border:1px solid var(--line);padding:0 5px}
+
+/* pasek górny */
+.topbar{background:var(--bg);border-bottom:1px solid var(--line);height:48px}
+.brand{color:var(--text);font-weight:700}
+.logo{background:none;color:var(--accent);font-size:1.5rem;width:auto;height:auto;display:inline}
+nav a{color:var(--muted);font-weight:500;padding:5px 10px}
+nav a:hover{background:transparent;color:var(--text)}
+nav a.active{background:transparent;color:var(--accent)}
+nav a.active::before{content:"> "}
+.nbadge{background:var(--accent);color:#000}
+.pill{background:transparent;border-color:var(--line)}
+
+/* przyciski: ramki jak w CLI */
+.btn{background:transparent;border:1px solid var(--line);color:var(--text);font-weight:600;transition:none}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:none}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#0b0b0b}
+.btn.primary:hover{background:var(--text);border-color:var(--text);color:#0b0b0b}
+.btn.good{background:var(--ok);color:#0b0b0b}
+.btn.ghost{background:transparent}
+.badge{background:transparent}
+
+/* karty i listy */
+.card,.item,.q,.cd,.term,.viz,.walk,.chk,.score,.flash,.modal,.gstep,.cmp-col,.fstep{background:var(--panel);box-shadow:none}
+.hero{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent)}
+.ring{background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--panel2) 0)}
+.progress{background:var(--panel2)}.progress>i{background:var(--accent)}
+.item:hover,.opt:hover{border-color:var(--accent)}
+.item .ico{background:transparent;border:1px solid var(--line)}
+.item.done .ico{background:var(--ok);color:#0b0b0b;border-color:var(--ok)}
+.mod::before{background:var(--bg);border-width:2px}
+.mod.done::before{color:#0b0b0b}
+.mod.active::before{border-color:var(--accent);color:var(--accent)}
+.road{border-left:2px dashed var(--line)}
+
+/* lekcja */
+.lesson-top{background:var(--bg);border-bottom:1px solid var(--line)}
+.step{background:transparent;border-color:var(--line);font-weight:500}
+.step.active{background:var(--accent);border-color:var(--accent);color:#0b0b0b}
+.step.ok{color:var(--ok);border-color:var(--ok)}
+.step.active.ok{background:var(--ok);border-color:var(--ok);color:#0b0b0b}
+.pane.left{background:var(--bg)}
+.pane.right,.toolbar,.ed-tabs{background:var(--bg2)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent)}
+.note.tip{border-left-color:var(--ok)}.note.warn{border-left-color:var(--warn)}.note.exam{border-left-color:var(--crit)}.note.info{border-left-color:var(--accent2)}
+.note b.lbl{opacity:1;color:var(--muted)}
+.analogy{background:var(--panel);border:1px dashed var(--accent);border-left:3px solid var(--accent)}
+.analogy .an-ic{font-size:1.6rem}
+.analogy .an-t{color:var(--accent)}
+.term b{color:var(--accent2)}
+.codeblock{border:1px solid var(--line);background:var(--code)}
+.codeblock .cb-head{background:var(--panel);color:var(--muted)}
+.codeblock .cb-head::before{content:"── "}
+.codeblock .out{background:transparent;color:var(--text);border-top:1px solid var(--line)}
+.codeblock .out::before{content:"⎿  ";color:var(--muted)}
+.codeblock .out.err{color:var(--bad);background:transparent}
+.cell{background:var(--panel2);border-color:var(--accent)}
+.vm-row span.k{border-color:var(--accent2)}.vm-row span.v{border-color:var(--accent)}
+.fstep,.cmp-col{background:var(--panel2)}
+
+/* zadanie */
+.gstep{background:transparent}
+.gstep.active{border-color:var(--accent);box-shadow:none;border-left:3px solid var(--accent)}
+.gstep.active .gs-num{background:var(--accent);color:#0b0b0b}
+.gstep.done .gs-num{background:var(--ok);color:#0b0b0b}
+.task-chk li.ok::before{color:var(--ok)}.task-chk li.no::before{color:var(--bad)}
+.chk{background:transparent}
+.chk.pass .mk{background:var(--ok);color:#0b0b0b}.chk.fail .mk{background:var(--bad);color:#0b0b0b}
+.errbox{background:transparent}
+.ed-tab{background:var(--panel)}
+.ed-tab.active{background:var(--code);color:var(--accent);border-top:2px solid var(--accent)}
+.ed textarea::selection{background:rgba(224,130,90,.45)}
+.ctab.active{background:transparent;color:var(--accent);border-bottom:2px solid var(--accent)}
+
+/* quiz: pytanie jak linia „> ” w CLI */
+.q{background:transparent}
+.q .qt{background:#262626;padding:6px 10px}
+:root[data-theme=light] .q .qt{background:#ebe8dc}
+.q .qt::before{content:"> ";color:var(--accent);font-weight:700}
+.opt{background:transparent}
+.opt.right{background:rgba(143,209,158,.1)}.opt.wrong{background:rgba(242,131,122,.1)}
+.opt.sel{border-color:var(--accent)}
+.q .why{background:transparent;border-left:3px solid var(--accent2)}
+.q .why::before{content:"⎿ ";color:var(--muted)}
+.verdict{background:transparent}
+
+/* „Dalej”: zawsze widoczny pasek na dole panelu z zadaniem */
+.dock-wrap{position:sticky;bottom:0;margin:18px -24px -22px;z-index:5}
+.dock-wrap:empty{display:none}
+.dock-wrap .note{margin:0;border-radius:0}
+.dock{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:space-between;padding:12px 24px;background:var(--bg2);border-top:2px solid var(--accent)}
+.dock-t{color:var(--accent);font-weight:700}
+.dock .btn{white-space:normal;text-align:center}
+.toast{background:var(--panel);border:1px solid var(--accent)}
+.modal-bg{background:rgba(0,0,0,.8)}
+.timer{background:var(--bg)}.timer .t{color:var(--accent)}
+input[type=text],input[type=number],select,textarea.inp,.stdin{background:var(--panel2)}
+@media (max-width:900px){.dock-wrap{margin:18px 0 0}.dock{padding:12px 14px}}
